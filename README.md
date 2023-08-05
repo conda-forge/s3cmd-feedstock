@@ -1,11 +1,11 @@
-About s3cmd
-===========
+About s3cmd-feedstock
+=====================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/s3cmd-feedstock/blob/main/LICENSE.txt)
 
 Home: https://s3tools.org/s3cmd
 
-Package license: GPL v2
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/s3cmd-feedstock/blob/main/LICENSE.txt)
+Package license: GPL-2.0-or-later
 
 Summary: Command line tool for managing Amazon S3 and CloudFront services
 
