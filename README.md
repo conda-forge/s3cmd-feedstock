@@ -1,15 +1,17 @@
-About s3cmd
-===========
+About s3cmd-feedstock
+=====================
 
-[![Powered by NumFOCUS](https://img.shields.io/badge/powered%20by-NumFOCUS-orange.svg?style=flat&colorA=E1523D&colorB=007D8A)](http://numfocus.org)
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/s3cmd-feedstock/blob/main/LICENSE.txt)
 
 Home: https://s3tools.org/s3cmd
 
 Package license: GPL v2
 
-Feedstock license: BSD 3-Clause
-
 Summary: Command line tool for managing Amazon S3 and CloudFront services
+
+Development: https://github.com/s3tools/s3cmd
+
+Documentation: https://s3tools.org/usage
 
 S3cmd is a free command line tool and client for uploading, retrieving and
 managing data in Amazon S3 and other cloud storage service providers that
@@ -22,8 +24,15 @@ cron, etc.
 Current build status
 ====================
 
-All platforms:
-[![noarch](https://img.shields.io/circleci/project/github/conda-forge/s3cmd-feedstock/master.svg?label=noarch)](https://circleci.com/gh/conda-forge/s3cmd-feedstock)
+
+<table><tr><td>All platforms:</td>
+    <td>
+      <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=2348&branchName=main">
+        <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/s3cmd-feedstock?branchName=main">
+      </a>
+    </td>
+  </tr>
+</table>
 
 Current release info
 ====================
@@ -39,23 +48,52 @@ Installing `s3cmd` from the `conda-forge` channel can be achieved by adding `con
 
 ```
 conda config --add channels conda-forge
+conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `s3cmd` can be installed with:
+Once the `conda-forge` channel has been enabled, `s3cmd` can be installed with `conda`:
 
 ```
 conda install s3cmd
 ```
 
-It is possible to list all of the versions of `s3cmd` available on your platform with:
+or with `mamba`:
+
+```
+mamba install s3cmd
+```
+
+It is possible to list all of the versions of `s3cmd` available on your platform with `conda`:
 
 ```
 conda search s3cmd --channel conda-forge
 ```
 
+or with `mamba`:
+
+```
+mamba search s3cmd --channel conda-forge
+```
+
+Alternatively, `mamba repoquery` may provide more information:
+
+```
+# Search all versions available on your platform:
+mamba repoquery search s3cmd --channel conda-forge
+
+# List packages depending on `s3cmd`:
+mamba repoquery whoneeds s3cmd --channel conda-forge
+
+# List dependencies of `s3cmd`:
+mamba repoquery depends s3cmd --channel conda-forge
+```
+
 
 About conda-forge
 =================
+
+[![Powered by
+NumFOCUS](https://img.shields.io/badge/powered%20by-NumFOCUS-orange.svg?style=flat&colorA=E1523D&colorB=007D8A)](https://numfocus.org)
 
 conda-forge is a community-led conda channel of installable packages.
 In order to provide high-quality builds, the process has been automated into the
@@ -65,10 +103,12 @@ for each of the installable packages. Such a repository is known as a *feedstock
 A feedstock is made up of a conda recipe (the instructions on what and how to build
 the package) and the necessary configurations for automatic building using freely
 available continuous integration services. Thanks to the awesome service provided by
-[CircleCI](https://circleci.com/), [AppVeyor](https://www.appveyor.com/)
-and [TravisCI](https://travis-ci.org/) it is possible to build and upload installable
-packages to the [conda-forge](https://anaconda.org/conda-forge)
-[Anaconda-Cloud](https://anaconda.org/) channel for Linux, Windows and OSX respectively.
+[Azure](https://azure.microsoft.com/en-us/services/devops/), [GitHub](https://github.com/),
+[CircleCI](https://circleci.com/), [AppVeyor](https://www.appveyor.com/),
+[Drone](https://cloud.drone.io/welcome), and [TravisCI](https://travis-ci.com/)
+it is possible to build and upload installable packages to the
+[conda-forge](https://anaconda.org/conda-forge) [anaconda.org](https://anaconda.org/)
+channel for Linux, Windows and OSX respectively.
 
 To manage the continuous integration and simplify feedstock maintenance
 [conda-smithy](https://github.com/conda-forge/conda-smithy) has been developed.
@@ -107,9 +147,9 @@ build distinct package versions.
 
 In order to produce a uniquely identifiable distribution:
  * If the version of a package **is not** being increased, please add or increase
-   the [``build/number``](https://conda.io/docs/user-guide/tasks/build-packages/define-metadata.html#build-number-and-string).
+   the [``build/number``](https://docs.conda.io/projects/conda-build/en/latest/resources/define-metadata.html#build-number-and-string).
  * If the version of a package **is** being increased, please remember to return
-   the [``build/number``](https://conda.io/docs/user-guide/tasks/build-packages/define-metadata.html#build-number-and-string)
+   the [``build/number``](https://docs.conda.io/projects/conda-build/en/latest/resources/define-metadata.html#build-number-and-string)
    back to 0.
 
 Feedstock Maintainers
