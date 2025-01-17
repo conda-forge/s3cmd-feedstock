@@ -5,7 +5,7 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/s3cmd-feedstock
 
 Home: https://s3tools.org/s3cmd
 
-Package license: GPL v2
+Package license: GPL-2.0-or-later
 
 Summary: Command line tool for managing Amazon S3 and CloudFront services
 
@@ -155,5 +155,6 @@ In order to produce a uniquely identifiable distribution:
 Feedstock Maintainers
 =====================
 
+* [@avalntino](https://github.com/avalntino/)
 * [@scopatz](https://github.com/scopatz/)
 
