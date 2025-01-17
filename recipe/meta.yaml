@@ -6,33 +6,35 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 6b567521be1c151323f2059c8feec85ded96b6f184ff80535837fea33798b40b
 
 build:
   noarch: python
   number: 0
-  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
   host:
-    - python
+    - python {{ python_min }}
     - pip
   run:
-    - python
+    - python >={{ python_min }}
     - python-dateutil
     - python-magic
 
 test:
+  requires:
+    - python {{ python_min }}
   commands:
     - s3cmd --help
 
 about:
   home: https://s3tools.org/s3cmd
-  license: GPL v2
+  license: GPL-2.0-or-later
   license_family: GPL
   license_file: LICENSE
-  summary: 'Command line tool for managing Amazon S3 and CloudFront services'
+  summary: Command line tool for managing Amazon S3 and CloudFront services
   description: |
     S3cmd is a free command line tool and client for uploading, retrieving and
     managing data in Amazon S3 and other cloud storage service providers that
